@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "WildBoar",
+    "subtitle": "Document Generator"
+  },
+  "form": {
+    "generate": "Generate Document",
+    "reset": "Reset",
+    "save": "Save",
+    "required": "Required",
+    "validation": {
+      "required": "This field is required",
+      "minLength": "Please enter at least {{min}} characters",
+      "maxLength": "You can enter up to {{max}} characters"
+    }
+  },
+  "document": {
+    "hwpx": "Hangeul Document (HWPX)",
+    "xlsx": "Excel Document (XLSX)",
+    "generating": "Generating document...",
+    "success": "Document has been generated",
+    "error": "An error occurred while generating the document",
+    "generation": "Document Generation",
+    "generatingDesc": "Please wait while your document is being generated",
+    "successDesc": "Your document is ready",
+    "errorDesc": "An error occurred during generation",
+    "createAnother": "Create Another",
+    "retry": "Retry"
+  },
+  "settings": {
+    "theme": "Theme",
+    "language": "Language",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "outputDirectory": "Output Directory",
+    "outputDirectoryDesc": "Default folder for documents (remembers last location)",
+    "noDirectorySelected": "No documents saved yet",
+    "selectDirectory": "Select Folder",
+    "clearDirectory": "Clear",
+    "outputDirectoryHint": "The folder is automatically remembered when you save a document"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "close": "Close",
+    "openFolder": "Open Folder"
+  }
+}

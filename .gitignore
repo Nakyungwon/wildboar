@@ -1,0 +1,21 @@
+node_modules
+dist
+out
+*.local
+.DS_Store
+*.log
+test-output
+
+# Local tooling / personal state (do not commit)
+.omc
+.claude/settings.local.json
+
+# Editor directories and files
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

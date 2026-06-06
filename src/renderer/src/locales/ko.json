@@ -1,0 +1,49 @@
+{
+  "app": {
+    "title": "WildBoar",
+    "subtitle": "문서 생성기"
+  },
+  "form": {
+    "generate": "문서 생성",
+    "reset": "초기화",
+    "save": "저장",
+    "required": "필수 입력",
+    "validation": {
+      "required": "이 필드는 필수입니다",
+      "minLength": "최소 {{min}}자 이상 입력하세요",
+      "maxLength": "최대 {{max}}자까지 입력 가능합니다"
+    }
+  },
+  "document": {
+    "hwpx": "한글 문서 (HWPX)",
+    "xlsx": "엑셀 문서 (XLSX)",
+    "generating": "문서 생성 중...",
+    "success": "문서가 생성되었습니다",
+    "error": "문서 생성 중 오류가 발생했습니다",
+    "generation": "문서 생성",
+    "generatingDesc": "문서를 생성하는 중입니다. 잠시 기다려 주세요.",
+    "successDesc": "문서가 준비되었습니다",
+    "errorDesc": "생성 중 오류가 발생했습니다",
+    "createAnother": "새 문서 만들기",
+    "retry": "다시 시도"
+  },
+  "settings": {
+    "theme": "테마",
+    "language": "언어",
+    "light": "라이트",
+    "dark": "다크",
+    "system": "시스템",
+    "outputDirectory": "저장 위치",
+    "outputDirectoryDesc": "문서가 저장될 기본 폴더입니다 (마지막 저장 위치 자동 기억)",
+    "noDirectorySelected": "아직 저장한 적 없음",
+    "selectDirectory": "폴더 선택",
+    "clearDirectory": "초기화",
+    "outputDirectoryHint": "문서를 저장하면 해당 폴더가 자동으로 기억됩니다"
+  },
+  "common": {
+    "cancel": "취소",
+    "confirm": "확인",
+    "close": "닫기",
+    "openFolder": "폴더 열기"
+  }
+}
