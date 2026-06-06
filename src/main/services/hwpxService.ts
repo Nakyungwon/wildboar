@@ -172,7 +172,7 @@ function generateContentHpf(title: string): string {
 // Generate version.xml. Hancom uses the hv:HCFVersion element (not hv:version);
 // the wrong root element causes the document to be rejected.
 function generateVersionXml(): string {
-  return `${XML_DECL}<hv:HCFVersion xmlns:hv="http://www.hancom.co.kr/hwpml/2011/version" tagetApplication="WORDPROCESSOR" major="5" minor="0" micro="5" buildNumber="0" os="1" xmlVersion="1.4" application="WildBoar" appVersion="1.0.0"/>`
+  return `${XML_DECL}<hv:HCFVersion xmlns:hv="http://www.hancom.co.kr/hwpml/2011/version" tagetApplication="WORDPROCESSOR" major="5" minor="0" micro="5" buildNumber="0" os="1" xmlVersion="1.4" application="WildBoar" appVersion="0.1.0"/>`
 }
 
 // Generate settings.xml. Root element must be ha:HWPApplicationSetting.

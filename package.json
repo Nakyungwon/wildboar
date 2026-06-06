@@ -1,6 +1,6 @@
 {
   "name": "wildboar",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "WildBoar - 한글(HWPX) 및 엑셀(XLSX) 문서 생성기",
   "main": "./out/main/index.js",
   "author": "WildBoar",
