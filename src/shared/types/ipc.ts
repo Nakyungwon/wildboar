@@ -21,6 +21,10 @@ export interface IpcChannels {
     request: { defaultPath?: string }
     response: { canceled: boolean; path?: string }
   }
+  'file:get-documents-dir': {
+    request: void
+    response: { path: string }
+  }
 }
 
 export interface FileFilter {

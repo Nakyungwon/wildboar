@@ -11,6 +11,7 @@ export interface Api {
   }): Promise<{ canceled: boolean; filePath?: string }>
   openFolder(path: string): Promise<void>
   selectDirectory(options?: { defaultPath?: string }): Promise<{ canceled: boolean; path?: string }>
+  getDocumentsDir(): Promise<{ path: string }>
   getVersion(): string
 }
 

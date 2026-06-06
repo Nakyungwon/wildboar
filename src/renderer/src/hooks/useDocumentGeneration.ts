@@ -17,7 +17,8 @@ export interface UseDocumentGenerationReturn {
   generateDocument: (
     type: DocumentType,
     data: FormData,
-    schemaId: string
+    schemaId: string,
+    outputPath?: string
   ) => Promise<DocumentGenerationResult>
   openGeneratedFile: () => void
   reset: () => void
@@ -38,7 +39,8 @@ export function useDocumentGeneration(): UseDocumentGenerationReturn {
     async (
       type: DocumentType,
       data: FormData,
-      schemaId: string
+      schemaId: string,
+      outputPath?: string
     ): Promise<DocumentGenerationResult> => {
       setState({
         isGenerating: true,
@@ -48,22 +50,26 @@ export function useDocumentGeneration(): UseDocumentGenerationReturn {
       })
 
       try {
-        // Open save dialog
-        const filters =
-          type === 'hwpx'
-            ? [{ name: t('document.hwpx'), extensions: ['hwpx'] }]
-            : [{ name: t('document.xlsx'), extensions: ['xlsx'] }]
+        // Resolve the target path: use the pre-selected path if provided,
+        // otherwise fall back to opening a save dialog here.
+        let targetPath = outputPath
+        if (!targetPath) {
+          const filters =
+            type === 'hwpx'
+              ? [{ name: t('document.hwpx'), extensions: ['hwpx'] }]
+              : [{ name: t('document.xlsx'), extensions: ['xlsx'] }]
 
-        const defaultName = `document.${type}`
-        const dialogResult = await window.api.saveDialog({
-          defaultName,
-          filters,
-          defaultPath: defaultOutputDir || undefined
-        })
+          const dialogResult = await window.api.saveDialog({
+            defaultName: `document.${type}`,
+            filters,
+            defaultPath: defaultOutputDir || undefined
+          })
 
-        if (dialogResult.canceled || !dialogResult.filePath) {
-          setState({ isGenerating: false, progress: 0, status: 'idle', message: '' })
-          return { success: false, error: 'Cancelled by user' }
+          if (dialogResult.canceled || !dialogResult.filePath) {
+            setState({ isGenerating: false, progress: 0, status: 'idle', message: '' })
+            return { success: false, error: 'Cancelled by user' }
+          }
+          targetPath = dialogResult.filePath
         }
 
         setState((prev) => ({ ...prev, progress: 50 }))
@@ -71,8 +77,8 @@ export function useDocumentGeneration(): UseDocumentGenerationReturn {
         // Generate document
         const result =
           type === 'hwpx'
-            ? await window.api.generateHwpx({ data, outputPath: dialogResult.filePath, schemaId })
-            : await window.api.generateXlsx({ data, outputPath: dialogResult.filePath, schemaId })
+            ? await window.api.generateHwpx({ data, outputPath: targetPath, schemaId })
+            : await window.api.generateXlsx({ data, outputPath: targetPath, schemaId })
 
         if (result.success && result.path) {
           addRecentPath(result.path)

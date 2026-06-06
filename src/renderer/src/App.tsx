@@ -8,7 +8,7 @@ import { basicDocumentSchema } from '../../shared/schemas/basicDocument'
 import type { FormData } from '../../shared/types/form'
 
 function App(): JSX.Element {
-  const { theme, setTheme } = useSettingsStore()
+  const { theme, setTheme, outputFilePath } = useSettingsStore()
   const { state, generateDocument, openGeneratedFile, reset } = useDocumentGeneration()
 
   const handleThemeToggle = () => {
@@ -16,8 +16,8 @@ function App(): JSX.Element {
   }
 
   const handleSubmit = async (data: FormData) => {
-    // Generate both HWPX and XLSX
-    await generateDocument('hwpx', data, basicDocumentSchema.id)
+    // Generate directly to the pre-selected output path (no second dialog).
+    await generateDocument('hwpx', data, basicDocumentSchema.id, outputFilePath)
   }
 
   // Apply theme class to document
@@ -41,7 +41,7 @@ function App(): JSX.Element {
       >
         {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
       </button>
-      <div className="flex h-full flex-col gap-6 p-6">
+      <div className="flex h-full flex-col">
         <FormBuilder
           schema={basicDocumentSchema}
           onSubmit={handleSubmit}

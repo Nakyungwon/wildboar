@@ -1,4 +1,4 @@
-import { ipcMain } from 'electron'
+import { app, ipcMain } from 'electron'
 import type { IpcChannels } from '../../shared/types/ipc'
 import { saveDialog, openFolder, selectDirectory } from '../services/fileService'
 
@@ -47,6 +47,19 @@ export function registerFileHandlers(): void {
       } catch (error) {
         console.error('Error in file:select-directory:', error)
         return { canceled: true }
+      }
+    }
+  )
+
+  // file:get-documents-dir - Returns the user's Documents folder (cross-platform)
+  ipcMain.handle(
+    'file:get-documents-dir',
+    async (): Promise<IpcChannels['file:get-documents-dir']['response']> => {
+      try {
+        return { path: app.getPath('documents') }
+      } catch (error) {
+        console.error('Error in file:get-documents-dir:', error)
+        return { path: app.getPath('home') }
       }
     }
   )

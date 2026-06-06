@@ -26,6 +26,9 @@ const api = {
   }): Promise<{ canceled: boolean; path?: string }> => {
     return ipcRenderer.invoke('file:select-directory', options || {})
   },
+  getDocumentsDir: (): Promise<{ path: string }> => {
+    return ipcRenderer.invoke('file:get-documents-dir')
+  },
   // App info APIs
   getVersion: (): string => {
     return ipcRenderer.sendSync('app:get-version')

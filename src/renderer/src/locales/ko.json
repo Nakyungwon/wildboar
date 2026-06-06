@@ -38,7 +38,11 @@
     "noDirectorySelected": "아직 저장한 적 없음",
     "selectDirectory": "폴더 선택",
     "clearDirectory": "초기화",
-    "outputDirectoryHint": "문서를 저장하면 해당 폴더가 자동으로 기억됩니다"
+    "outputDirectoryHint": "문서를 저장하면 해당 폴더가 자동으로 기억됩니다",
+    "outputFile": "저장 파일",
+    "noFileSelected": "파일을 먼저 지정하세요",
+    "selectFile": "파일 지정",
+    "changeFile": "변경"
   },
   "common": {
     "cancel": "취소",

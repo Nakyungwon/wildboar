@@ -38,7 +38,11 @@
     "noDirectorySelected": "No documents saved yet",
     "selectDirectory": "Select Folder",
     "clearDirectory": "Clear",
-    "outputDirectoryHint": "The folder is automatically remembered when you save a document"
+    "outputDirectoryHint": "The folder is automatically remembered when you save a document",
+    "outputFile": "Output File",
+    "noFileSelected": "Choose a file first",
+    "selectFile": "Choose File",
+    "changeFile": "Change"
   },
   "common": {
     "cancel": "Cancel",

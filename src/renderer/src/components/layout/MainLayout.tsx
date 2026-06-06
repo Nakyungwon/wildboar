@@ -52,7 +52,7 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
         {/* Content Area */}
         <main
           className={cn(
-            'flex-1 overflow-y-auto',
+            'flex-1 overflow-hidden',
             'bg-background',
             'dark:bg-slate-950',
             contentClassName
